@@ -40,11 +40,11 @@ namespace iCAR10p
 
             Cliente mundo_credito = new Cliente("76224981-2", "SERVICIOS FINANCIEROS MUNDO CREDITO S.A.", "MUNDO CREDITO");
             Cliente GMF = new Cliente("94050000-1", "GENERAL MOTORS FINANCIAL CHILE S.A.","GMF");
+            Cliente Gildemeister = new Cliente("76462402-5", "AUTOMOTORES GILDEMEISTER SPA", "GILDEMEISTER");
 
             _mis_clientes.Add(mundo_credito);
-            _mis_clientes.Add(GMF);          
-
-            
+            _mis_clientes.Add(GMF);
+            _mis_clientes.Add(Gildemeister);           
 
         }
 
@@ -253,7 +253,7 @@ namespace iCAR10p
                 string fecha = "";
                 
                 fecha = convertidor_fecha(fila_datos["Fecha"]);
-                string glosa = fecha + " Pago: " + fila_datos["PAGO"] + " por " + _mis_pagos[id_pago]._monto_pago.ToString() + " Pago TX" + fila_datos["PRENDA O ALZAMIENTO"] + " " + fila_datos["Patente"];
+                string glosa = fecha + " Pago: " + fila_datos["PAGO"] + " por " + _mis_pagos[id_pago]._monto_pago.ToString() + " Pago TX" + fila_datos["PRENDA O ALZAMIENTO"]; //+ " " + fila_datos["Patente"]
                 fila_i.Add("Glosa", glosa);
 
                 //Tipo Entidad
@@ -348,7 +348,7 @@ namespace iCAR10p
                     //Linea
                     fila_i.Add("Linea", "");
                     // Cuenta
-                    string cuenta = "111204";
+                    string cuenta = mi_pago._cuenta_contabilizacion_pagos.ToString();
                     fila_i.Add("Cuenta", cuenta);
 
                     //Desc. cuenta

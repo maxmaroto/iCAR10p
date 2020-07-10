@@ -71,7 +71,7 @@ namespace iCAR10p
             Dictionary<string, TablaExcel> mis_TablasExcel = new Dictionary<string, TablaExcel>();
             //Stream mio;                                                               //En esta parte del codigo se abre un dialogo con
             OpenFileDialog dialogo = new OpenFileDialog();                              // el usuario, y se toma la informacion del archivo,
-            dialogo.InitialDirectory = "C:\\Users\\Maximiliano Maroto\\Google Drive\\Contabilidad ICAR\\Prendas y Alzamientos\\Febrero";      // que en caso de no ser correcto lanzara una excepcion
+            dialogo.InitialDirectory = "C:\\Users\\Maximiliano Maroto\\Google Drive\\Contabilidad ICAR\\Prendas y Alzamientos\\Marzo";      // que en caso de no ser correcto lanzara una excepcion
             //dialogo.Filter = "txt files (*.txt)|*.txt";                               // que será atrapada y finalizara el programa.
             dialogo.RestoreDirectory = true;
             dialogo.ShowDialog();
@@ -460,9 +460,11 @@ namespace iCAR10p
 
             Logica_lectura_facturas Lector = new Logica_lectura_facturas(directorio);
             Lector.Procesar_facturas();
-            Lector.Generar_Tablas_Excel();
+            Lector.Generar_Tablas_Excel_Patentes();
+            Lector.Generar_Tablas_Excel_Facturas();
 
             Exportar_Archivo(Lector._output_patentes);
+            Exportar_Archivo(Lector._output_facturas);
 
             this.Dispose();
         }

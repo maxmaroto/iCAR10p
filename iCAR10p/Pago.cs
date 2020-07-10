@@ -13,11 +13,14 @@ namespace iCAR10p
         public int _monto_pago { get; set; }
         public string _fecha_pago { get; set; }
 
+        public int _cuenta_contabilizacion_pagos { get; set; }
+
         public Pago(int id, int _monto_primer_pago)
         {
             _id_pago = id;
             _monto_pago = _monto_primer_pago;
             _pago_es_contabilizable = true;
+            _cuenta_contabilizacion_pagos = 111204;
         }
     }
 }

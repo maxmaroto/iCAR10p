@@ -19,11 +19,12 @@ namespace iCAR10p
         public int _numero_patentes { get; set; }
         public double _monto_por_patente { get; set; }
 
-        public List<string> _patentes_factura { get; set; }
+        public List<Detalle_Factura> _lineas_de_detalle;
+        
 
         public Factura()
         {
-            _patentes_factura = new List<string>();
+            _lineas_de_detalle = new List<Detalle_Factura>();
         }
 
 
